@@ -19,7 +19,8 @@ export const AboutSection = ({ data }: AboutSectionProps) => {
             The Architect
           </h3>
           <div className="prose prose-invert prose-lg max-w-none">
-            <PortableText value={data.content} />
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+            <PortableText value={data.content as any} />
           </div>
         </div>
         

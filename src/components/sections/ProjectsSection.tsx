@@ -3,13 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity'
-import { SanityImageSource } from '@sanity/image-url/lib/types/types'
-
 interface Project {
   _id: string
   title: string
   description: string
-  mainImage: SanityImageSource
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mainImage: any
   technologies: string[]
   demoUrl: string
 }

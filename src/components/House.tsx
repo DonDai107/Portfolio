@@ -170,7 +170,7 @@ export const House = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 1.5, ease: "power3.out" }}
+        transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
         className="absolute top-12 left-12 z-20"
       >
         <h1 className="text-zinc-500 text-[10px] uppercase tracking-[0.5em] mb-2 font-medium">

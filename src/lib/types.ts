@@ -1,5 +1,3 @@
-import { SanityImageSource } from '@sanity/image-url/lib/types/types'
-
 export interface Bio {
   name: string
   role: string
@@ -11,7 +9,8 @@ export interface Project {
   _id: string
   title: string
   description: string
-  mainImage: SanityImageSource
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  mainImage: any
   technologies: string[]
   demoUrl: string
 }
