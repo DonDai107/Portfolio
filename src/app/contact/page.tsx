@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { ArrowUpRight, Code2, Briefcase, Mail, Send } from 'lucide-react'
 
 export default function Contact() {
   const socials = [
-    { name: 'GitHub', link: 'https://github.com/DonDai107', icon: <Github /> },
-    { name: 'LinkedIn', link: 'https://linkedin.com/in/youbankarki', icon: <Linkedin /> },
-    { name: 'Twitter', link: 'https://twitter.com/youbankarki', icon: <Twitter /> },
+    { name: 'GitHub', link: 'https://github.com/DonDai107', icon: <Code2 /> },
+    { name: 'LinkedIn', link: 'https://linkedin.com/in/youbankarki', icon: <Briefcase /> },
+    { name: 'Twitter', link: 'https://twitter.com/youbankarki', icon: <Send /> },
   ]
 
   return (

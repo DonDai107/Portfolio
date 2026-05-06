@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react'
+import { Code2, Briefcase, Send, ArrowUpRight } from 'lucide-react'
 
 export const Footer = () => {
   return (
@@ -12,9 +12,9 @@ export const Footer = () => {
               LET&rsquo;S <br /> <span className="text-background">CREATE.</span>
             </h2>
             <div className="flex gap-8">
-              <a href="https://github.com/DonDai107" target="_blank" className="hover:text-accent-terracotta transition-colors"><Github size={24} /></a>
-              <a href="https://linkedin.com/in/youbankarki" target="_blank" className="hover:text-accent-terracotta transition-colors"><Linkedin size={24} /></a>
-              <a href="https://twitter.com/youbankarki" target="_blank" className="hover:text-accent-terracotta transition-colors"><Twitter size={24} /></a>
+              <a href="https://github.com/DonDai107" target="_blank" className="hover:text-accent-terracotta transition-colors"><Code2 size={24} /></a>
+              <a href="https://linkedin.com/in/youbankarki" target="_blank" className="hover:text-accent-terracotta transition-colors"><Briefcase size={24} /></a>
+              <a href="https://twitter.com/youbankarki" target="_blank" className="hover:text-accent-terracotta transition-colors"><Send size={24} /></a>
             </div>
           </div>
 
