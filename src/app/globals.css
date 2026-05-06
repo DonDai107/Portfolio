@@ -1,13 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #87CEEB; /* Sky Blue */
+  --background: #fdfaf3; /* Warm Cream */
   --foreground: #1a1a1a;
+  --accent-blue: #87CEEB;
+  --accent-terracotta: #B35C1E;
+  --accent-green: #3FA34D;
+  --grid-line: rgba(183, 92, 30, 0.05);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-terracotta: var(--accent-terracotta);
+  --color-accent-green: var(--accent-green);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
@@ -16,6 +23,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 @layer base {
@@ -32,11 +43,42 @@ body {
   @apply text-zinc-900 font-serif mt-8 mb-4;
 }
 
-.prose p {
-  @apply mb-6;
+/* Architectural Detail */
+.blueprint-line {
+  position: relative;
 }
 
-/* Parchment Effect */
+.blueprint-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .blueprint-line::after {
+  transform: scaleX(1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-terracotta);
+  border-radius: 10px;
+}
+
 .parchment {
   background: #fdf5e6;
   background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 100%),
