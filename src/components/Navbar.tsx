@@ -25,10 +25,10 @@ export const Navbar = () => {
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-serif font-black tracking-tighter">
-          YB.K<span className="text-accent-terracotta">.</span>
+        <Link href="/" className="text-2xl font-serif font-black tracking-tighter group">
+          YB.K<span className="text-accent-magenta group-hover:text-accent-cyan transition-colors">.</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -37,14 +37,14 @@ export const Navbar = () => {
             <Link 
               key={link.path} 
               href={link.path}
-              className={`text-[10px] uppercase tracking-[0.3em] font-bold transition-colors hover:text-accent-terracotta ${pathname === link.path ? 'text-accent-terracotta' : 'text-zinc-500'}`}
+              className={`text-[10px] uppercase tracking-[0.3em] font-bold transition-colors hover:text-accent-cyan ${pathname === link.path ? 'text-accent-cyan' : 'text-zinc-500'}`}
             >
               {link.name}
             </Link>
           ))}
           <Link 
             href="/contact" 
-            className="px-6 py-2 bg-foreground text-background text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-accent-terracotta transition-colors"
+            className="px-6 py-2 bg-foreground text-background text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-accent-violet transition-colors"
           >
             Hire Me
           </Link>
@@ -66,14 +66,14 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-background border-b border-zinc-100 flex flex-col items-center py-12 gap-8 md:hidden shadow-xl"
+            className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b border-white/5 flex flex-col items-center py-12 gap-8 md:hidden shadow-xl"
           >
             {navLinks.map((link) => (
               <Link 
                 key={link.path} 
                 href={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-2xl font-serif font-black transition-colors ${pathname === link.path ? 'text-accent-terracotta' : 'text-foreground'}`}
+                className={`text-2xl font-serif font-black transition-colors ${pathname === link.path ? 'text-accent-cyan' : 'text-foreground'}`}
               >
                 {link.name}
               </Link>

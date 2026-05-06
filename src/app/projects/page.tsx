@@ -1,9 +1,17 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 import { ExternalLink, Terminal, Layers } from 'lucide-react'
 
 export default function Projects() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  }
+
   const projects = [
     {
       title: 'AI Workflow & Security Suite',
@@ -51,46 +59,59 @@ export default function Projects() {
 
   return (
     <div className="relative">
+      <div className="blob w-[600px] h-[600px] bg-accent-cyan/10 top-0 left-0" />
+      
       <section className="section-padding">
-        <div className="max-w-7xl mx-auto space-y-20">
-          <h1 className="text-huge">
-            BUILT <br /> <span className="text-outline">WORKS.</span>
-          </h1>
+        <div className="max-w-7xl mx-auto space-y-32">
+          <motion.h1 
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-huge"
+          >
+            BUILT <br /> <span className="text-outline text-neon-cyan">WORKS.</span>
+          </motion.h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-100 border border-zinc-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, i) => (
-              <div key={i} className="bg-background p-12 md:p-16 space-y-8 group hover:bg-foreground hover:text-background transition-all duration-500">
-                <div className="flex justify-between items-start">
+              <motion.div 
+                key={i} 
+                {...fadeInUp}
+                transition={{ ...fadeInUp.transition, delay: i * 0.1 }}
+                className="glass p-12 md:p-16 space-y-8 group hover:border-accent-magenta/30 transition-all duration-500 relative overflow-hidden"
+              >
+                <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-accent-magenta/5 blur-3xl rounded-full group-hover:bg-accent-magenta/10 transition-colors" />
+                
+                <div className="flex justify-between items-start relative z-10">
                   <div className="space-y-2">
-                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-accent-terracotta group-hover:text-accent-blue transition-colors">{project.tagline}</span>
-                    <h3 className="text-4xl md:text-5xl font-serif font-black tracking-tighter leading-tight">
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-accent-cyan group-hover:text-accent-magenta transition-colors">{project.tagline}</span>
+                    <h3 className="text-4xl md:text-5xl font-serif font-black tracking-tighter leading-tight group-hover:text-accent-cyan transition-colors">
                       {project.title}
                     </h3>
                   </div>
-                  <Layers className="text-zinc-200 group-hover:text-accent-terracotta/40" size={40} />
+                  <Layers className="text-white/10 group-hover:text-accent-magenta/40 transition-colors" size={40} />
                 </div>
 
-                <p className="text-zinc-500 group-hover:text-zinc-300 text-lg leading-relaxed">
+                <p className="text-zinc-400 group-hover:text-zinc-200 text-lg leading-relaxed relative z-10">
                   {project.desc}
                 </p>
 
-                <div className="space-y-6">
+                <div className="space-y-10 relative z-10">
                   <div className="flex flex-wrap gap-3">
                     {project.tech.map((t) => (
-                      <span key={t} className="flex items-center gap-2 px-3 py-1 border border-zinc-200 text-[10px] uppercase tracking-widest font-bold group-hover:border-zinc-800">
-                        <Terminal size={12} /> {t}
+                      <span key={t} className="flex items-center gap-2 px-3 py-1 border border-white/5 bg-white/5 text-[10px] uppercase tracking-widest font-bold text-zinc-500 group-hover:text-accent-cyan group-hover:border-accent-cyan/20 transition-colors">
+                        <Terminal size={12} className="text-accent-magenta" /> {t}
                       </span>
                     ))}
                   </div>
 
                   <a 
                     href={project.link} 
-                    className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold border-b-2 border-accent-terracotta pb-2 group-hover:text-accent-blue transition-colors"
+                    className="inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-300 border-b-2 border-accent-cyan/20 pb-2 hover:text-accent-magenta hover:border-accent-magenta transition-colors"
                   >
                     Inspect Build <ExternalLink size={14} />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
