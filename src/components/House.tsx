@@ -165,7 +165,7 @@ export const House = () => {
           {/* Decorative Floating Elements */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'sine.inOut' }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             className="absolute top-1/4 -right-8 w-24 h-24 bg-accent-blue/5 rounded-full blur-2xl"
           />
         </div>
